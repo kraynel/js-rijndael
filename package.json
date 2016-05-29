@@ -1,0 +1,24 @@
+{
+  "name": "js-rijndael",
+  "version": "1.0.0",
+  "description": "Javascript implementation of the rijndael block cipher. Key lengths of 128, 192 and 256 bits, and block lengths of 128, 192, and 256 bit in any combination are supported.",
+  "main": "mcrypt.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha *.test.js"
+  },
+  "keywords": [
+    "rijndael",
+    "aes",
+    "crypto",
+    "javascript",
+    "mcrypt"
+  ],
+  "author": "Kevin Raynel",
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0"
+  }
+}
