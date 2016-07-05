@@ -16,6 +16,7 @@
   "author": "Kevin Raynel",
   "license": "GPL-2.0",
   "devDependencies": {
+    "base64-js": "^1.1.2",
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
     "sinon": "^1.17.4",

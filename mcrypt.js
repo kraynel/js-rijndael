@@ -52,7 +52,7 @@ var crypt = function(encrypt, text, IV, key, cipher, mode) {
 
   var blockS = ciphers[cipher].blockSize;
   var chunkS = blockS;
-  var iv = null;
+  var iv = [];
 
   switch(mode) {
     case 'cfb':
@@ -91,11 +91,17 @@ var crypt = function(encrypt, text, IV, key, cipher, mode) {
       for(var j = 0; j < chunkS; j++) {
         iv[j] = text[(i*chunkS)+j];
       }
-
       rijndaelCipher(iv, key, encrypt);
       for(var j = 0; j < chunkS; j++) {
         out.push(iv[j]);
       }
+
+      var last;
+      do {
+        last = out.pop();
+      } while(last == 0)
+      out.push(last);
+
     }
     break;
     case 'cbc':
@@ -123,6 +129,11 @@ var crypt = function(encrypt, text, IV, key, cipher, mode) {
           out.push(temp[j]^decr[j]);
         }
       }
+      var last;
+      do {
+        last = out.pop();
+      } while(last == 0)
+      out.push(last);
     }
     break;
     case 'cfb':
@@ -134,7 +145,7 @@ var crypt = function(encrypt, text, IV, key, cipher, mode) {
       iv.shift();
       out.push(temp);
     }
-    out = out.substr(0, orig);
+    out = out.splice(0, orig);
     break;
     case 'ncfb':
     for(var i = 0; i < chunks; i++) {
@@ -148,7 +159,7 @@ var crypt = function(encrypt, text, IV, key, cipher, mode) {
         }
       }
     }
-    out = out.substr(0, orig);
+    out = out.splice(0, orig);
     break;
     case 'nofb':
     for(var i = 0; i < chunks; i++) {
@@ -175,7 +186,7 @@ var crypt = function(encrypt, text, IV, key, cipher, mode) {
         iv[index] &= 255;
       } while(carry)
     }
-    out = out.substr(0, orig);
+    out = out.slice(0, orig);
     break;
   }
 
