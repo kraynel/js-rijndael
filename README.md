@@ -2,16 +2,17 @@
 
 [![CircleCI](https://circleci.com/gh/kraynel/js-rijndael.svg?style=svg)](https://circleci.com/gh/kraynel/js-rijndael)
 [![Coverage Status](https://coveralls.io/repos/github/kraynel/js-rijndael/badge.svg?branch=master)](https://coveralls.io/github/kraynel/js-rijndael?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/npm/js-rijndael/badge.svg)](https://snyk.io/test/npm/js-rijndael)
 
 JS-Rijndael is a port of F. Doering and B. Poettering implementation of Rijndael algorithm.
 It has no external dependencies and is fully compatible with [mcrypt](http://php.net/manual/fr/book.mcrypt.php).
 
 ## How to use
 
-Add the dependency to your project: `npm install --save js-mcrypt`.
+Add the dependency to your project: `npm install --save js-rijndael`.
 Require it in your file.
 ```js
-var mcrypt = require('js-mcrypt');
+var mcrypt = require('js-rijndael');
 ```
 `mcrypt.listAlgorithms()` lists the available ciphers:
 - rijndael-128
