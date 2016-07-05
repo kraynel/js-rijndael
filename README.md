@@ -27,18 +27,18 @@ var mcrypt = require('js-rijndael');
 - nofb
 - ctr
 
-Two methods are exposed: `Encrypt` and `Decrypt`. They take byte arrays as inputs (regular arrays).
+Two methods are exposed: `encrypt` and `decrypt`. They take byte arrays as inputs (regular arrays).
 
 ### Encrypt
 
 ```js
-encryptedByteArray = mcrypt.Encrypt(clearMessage, iv, key, cipherName, mode);
+encryptedByteArray = mcrypt.encrypt(clearMessage, iv, key, cipherName, mode);
 ```
 
 ### Decrypt
 
 ```js
-clearByteArray = mcrypt.Decrypt(encryptedMessage, iv, key, cipherName, mode);
+clearByteArray = mcrypt.decrypt(encryptedMessage, iv, key, cipherName, mode);
 ```
 
 ### Example
